@@ -11,7 +11,7 @@
 
 <p align="center">
   <a href="https://hacs.xyz/"><img src="https://img.shields.io/badge/HACS-Custom-41BDF5.svg" alt="HACS Custom"></a>
-  <img src="https://img.shields.io/badge/version-1.0.3-blue.svg" alt="version">
+  <img src="https://img.shields.io/badge/version-1.0.4-blue.svg" alt="version">
   <a href="https://github.com/Flybrow/mykoplus-homeassistant/actions/workflows/validate.yml"><img src="https://github.com/Flybrow/mykoplus-homeassistant/actions/workflows/validate.yml/badge.svg" alt="Validate"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg" alt="MIT"></a>
 </p>

@@ -4,6 +4,13 @@ Toutes les modifications notables de ce projet sont documentées ici.
 Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) et le
 projet adhère au [versionnage sémantique](https://semver.org/lang/fr/).
 
+## [1.0.4] - 2026-06-21
+
+### Corrigé
+- Commande marche/arrêt parfois non prise en compte : suppression du
+  rafraîchissement immédiat qui annulait l'état (le cloud met ~2 s à propager),
+  et vérification + renvoi automatique de la commande si elle n'a pas abouti.
+
 ## [1.0.3] - 2026-06-21
 
 ### Corrigé
@@ -46,6 +53,7 @@ Première version stable.
 - Outil de diagnostic (`tools/myko_diagnostics.py` / `MykoDiagnostics.exe`) pour
   exporter une description anonymisée des appareils et aider à leur intégration.
 
+[1.0.4]: https://github.com/Flybrow/mykoplus-homeassistant/releases/tag/v1.0.4
 [1.0.3]: https://github.com/Flybrow/mykoplus-homeassistant/releases/tag/v1.0.3
 [1.0.2]: https://github.com/Flybrow/mykoplus-homeassistant/releases/tag/v1.0.2
 [1.0.1]: https://github.com/Flybrow/mykoplus-homeassistant/releases/tag/v1.0.1

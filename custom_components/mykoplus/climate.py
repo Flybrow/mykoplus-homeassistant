@@ -46,8 +46,8 @@ class MykoPlusClimate(MykoPlusEntity, ClimateEntity):
         if temp is None:
             return
         await self.coordinator.client.set_parameters([self._device_id], {DP_TARGET_TEMP: temp})
-        await self.coordinator.async_request_refresh()
+        self.coordinator.async_set_updated_data(dict(self.coordinator.client.devices))
 
     async def async_set_hvac_mode(self, hvac_mode: HVACMode) -> None:
         await self.coordinator.client.set_parameters([self._device_id], {DP_POWER: hvac_mode != HVACMode.OFF})
-        await self.coordinator.async_request_refresh()
+        self.coordinator.async_set_updated_data(dict(self.coordinator.client.devices))

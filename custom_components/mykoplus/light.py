@@ -46,8 +46,8 @@ class MykoPlusLight(MykoPlusEntity, LightEntity):
         if ATTR_BRIGHTNESS in kwargs:
             params[DP_BRIGHTNESS] = _to_api(kwargs[ATTR_BRIGHTNESS])
         await self.coordinator.client.set_parameters([self._device_id], params)
-        await self.coordinator.async_request_refresh()
+        self.coordinator.async_set_updated_data(dict(self.coordinator.client.devices))
 
     async def async_turn_off(self, **kwargs: Any) -> None:
         await self.coordinator.client.set_parameters([self._device_id], {DP_POWER: False})
-        await self.coordinator.async_request_refresh()
+        self.coordinator.async_set_updated_data(dict(self.coordinator.client.devices))

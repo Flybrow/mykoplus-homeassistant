@@ -32,11 +32,11 @@ class MykoPlusSwitch(MykoPlusEntity, SwitchEntity):
 
     async def async_turn_on(self, **kwargs: Any) -> None:
         await self.coordinator.client.turn_on(self._device_id)
-        await self.coordinator.async_request_refresh()
+        self.coordinator.async_set_updated_data(dict(self.coordinator.client.devices))
 
     async def async_turn_off(self, **kwargs: Any) -> None:
         await self.coordinator.client.turn_off(self._device_id)
-        await self.coordinator.async_request_refresh()
+        self.coordinator.async_set_updated_data(dict(self.coordinator.client.devices))
 
 class MykoPlusLedSwitch(MykoPlusEntity, SwitchEntity):
     _attr_translation_key = 'led'
@@ -55,7 +55,7 @@ class MykoPlusLedSwitch(MykoPlusEntity, SwitchEntity):
 
     async def _set(self, led_on: bool) -> None:
         await self.coordinator.client.set_parameters([self._device_id], {DP_DARK_MODE: not led_on})
-        await self.coordinator.async_request_refresh()
+        self.coordinator.async_set_updated_data(dict(self.coordinator.client.devices))
 
     async def async_turn_on(self, **kwargs: Any) -> None:
         await self._set(True)

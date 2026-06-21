@@ -1,9 +1,10 @@
 from __future__ import annotations
+import asyncio
 import logging
 from typing import Any
 import aiohttp
 from . import const
-from .exceptions import MykoPlusApiError, MykoPlusAuthError, MykoPlusConnectionError
+from .exceptions import MykoPlusApiError, MykoPlusAuthError, MykoPlusConnectionError, MykoPlusError
 from .models import MykoDevice, MykoHome
 _LOGGER = logging.getLogger(__name__)
 
@@ -111,6 +112,18 @@ class MykoPlusClient:
 
     async def async_set_power(self, device_id: str, on: bool) -> None:
         await self.set_parameters([device_id], {const.DP_POWER: on})
+        # Le cloud met ~2 s a refleter le changement ; on verifie et on renvoie
+        # la commande une fois si elle n'a pas ete prise en compte.
+        for _ in range(2):
+            await asyncio.sleep(2.5)
+            try:
+                await self.get_devices()
+            except MykoPlusError:
+                return
+            dev = self._devices.get(device_id)
+            if dev is None or bool(dev.state.get(const.DP_POWER)) == on:
+                return
+            await self.set_parameters([device_id], {const.DP_POWER: on})
 
     async def turn_on(self, device_id: str) -> None:
         await self.async_set_power(device_id, True)
