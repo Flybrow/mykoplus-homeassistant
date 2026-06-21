@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="custom_components/mykoplus/brand/logo.png" alt="Myko+" width="160">
+</p>
+
 # Myko+ pour Home Assistant
 
 Intégration personnalisée (custom integration) pour les appareils connectés de la
