@@ -17,23 +17,34 @@ class MykoPlusCoordinator(DataUpdateCoordinator[dict[str, MykoDevice]]):
         self.entry = entry
         self.client = client
         self._realtimes: list[MykoRealtime] = []
+        self._rt_token: str | None = None
+        self._fail_count = 0
 
     async def _async_update_data(self) -> dict[str, MykoDevice]:
         try:
             await self.client.async_ensure_token()
             await self.client.get_devices()
-        except MykoPlusAuthError as err:
-            raise UpdateFailed(f'Auth Myko+ échouée : {err}') from err
-        except MykoPlusApiError as err:
-            raise UpdateFailed(f'API Myko+ : {err}') from err
         except MykoPlusError as err:
-            raise UpdateFailed(f'Erreur Myko+ : {err}') from err
+            self._fail_count += 1
+            if self.data and self._fail_count <= 3:
+                _LOGGER.debug('Erreur transitoire Myko+ (%s/3), conserve l\'etat : %s', self._fail_count, err)
+                return self.data
+            raise UpdateFailed(f'Myko+ : {err}') from err
+        self._fail_count = 0
+        await self._ensure_realtime()
         return dict(self.client.devices)
 
     async def async_start_realtime(self) -> None:
+        await self._ensure_realtime()
+
+    async def _ensure_realtime(self) -> None:
         token = self.client.token
         if not token:
             return
+        if self._realtimes and self._rt_token == token and all(rt.is_connected() for rt in self._realtimes):
+            return
+        await self.async_stop_realtime()
+        self._rt_token = token
         for home_id in self.client.homes:
             rt = MykoRealtime(token, home_id, self._handle_event)
             try:

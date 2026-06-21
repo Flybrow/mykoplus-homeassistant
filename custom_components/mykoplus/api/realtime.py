@@ -41,6 +41,13 @@ class MykoRealtime:
     def update_token(self, token: str) -> None:
         self._token = token
 
+    @property
+    def home_id(self) -> str:
+        return self._home_id
+
+    def is_connected(self) -> bool:
+        return self._sio.connected
+
     async def start(self) -> None:
         headers = dict(const.APP_HEADERS)
         headers['authorization'] = f'Bearer {self._token}'

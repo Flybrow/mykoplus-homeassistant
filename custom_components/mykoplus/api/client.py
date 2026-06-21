@@ -36,7 +36,7 @@ class MykoPlusClient:
     async def __aexit__(self, *exc: object) -> None:
         await self.close()
 
-    async def _request(self, method: str, path: str, *, body: dict[str, Any] | None=None, auth: bool=True, _retry: bool=True) -> Any:
+    async def _request(self, method: str, path: str, *, body: dict[str, Any] | None=None, auth: bool=True, _retry: int=2) -> Any:
         session = await self._ensure_session()
         headers = dict(const.APP_HEADERS)
         headers['user-agent'] = const.USER_AGENT
@@ -55,10 +55,10 @@ class MykoPlusClient:
         except TimeoutError as err:
             raise MykoPlusConnectionError('timeout') from err
         if status == 401:
-            if auth and _retry:
+            if auth and _retry > 0:
                 self._token = None
                 await self.login()
-                return await self._request(method, path, body=body, auth=auth, _retry=False)
+                return await self._request(method, path, body=body, auth=auth, _retry=_retry - 1)
             raise MykoPlusAuthError('token expiré ou invalide (401)')
         if status >= 400:
             raise MykoPlusApiError(status, None, text[:200])
