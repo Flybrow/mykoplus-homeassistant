@@ -4,6 +4,15 @@ Toutes les modifications notables de ce projet sont documentées ici.
 Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) et le
 projet adhère au [versionnage sémantique](https://semver.org/lang/fr/).
 
+## [1.0.1] - 2026-06-21
+
+### Corrigé
+- Nom affiché dans HACS : « Myko+ » (au lieu de « Myko+ (Tuya OEM) »).
+
+### Modifié
+- README enrichi (badges, exemple d'automatisation, confidentialité, guide de
+  contribution) et logo.
+
 ## [1.0.0] - 2026-06-21
 
 Première version stable.
@@ -19,4 +28,5 @@ Première version stable.
 - Outil de diagnostic (`tools/myko_diagnostics.py` / `MykoDiagnostics.exe`) pour
   exporter une description anonymisée des appareils et aider à leur intégration.
 
+[1.0.1]: https://github.com/Flybrow/mykoplus-homeassistant/releases/tag/v1.0.1
 [1.0.0]: https://github.com/Flybrow/mykoplus-homeassistant/releases/tag/v1.0.0

@@ -1,7 +1,5 @@
 {
-  "name": "Myko+ (Tuya OEM)",
+  "name": "Myko+",
   "render_readme": true,
-  "homeassistant": "2024.10.0",
-  "zip_release": false,
-  "filename": "mykoplus.zip"
+  "homeassistant": "2024.10.0"
 }
