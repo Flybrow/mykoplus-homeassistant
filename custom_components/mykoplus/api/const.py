@@ -1,0 +1,26 @@
+from __future__ import annotations
+API_BASE = 'https://mobileapi1.mykoapp.kingfisher.com'
+WS_BASE = 'https://mobilews01.mykoapp.kingfisher.com'
+EP_LOGIN = '/v1/auth/login'
+EP_USER = '/v1/users/{user_id}'
+EP_USER_HOMES = '/v1/users/{user_id}/homes'
+EP_HOME_DEVICES = '/v1/homes/{home_id}/devices'
+EP_DEVICES_STATE = '/v1/devices/state'
+APP_HEADERS = {'application': 'myko', 'application-version': '2.5.0', 'os': 'android', 'source-type': 'myko', 'source-id': 'home-assistant', 'accept': 'application/json'}
+USER_AGENT = 'okhttp/4.12.0'
+DEFAULT_TIMEOUT = 15
+DP_POWER = 'power'
+DP_DARK_MODE = 'darkMode'
+DP_BRIGHTNESS = 'brightness'
+DP_HUE = 'hue'
+DP_SATURATION = 'saturation'
+DP_COLOR_TEMP = 'colorTemp'
+DP_TARGET_TEMP = 'targetTemperature'
+DP_CURRENT_TEMP = 'currentTemperature'
+DP_MODE = 'mode'
+DP_BOOST = 'boost'
+DP_SIREN = 'siren'
+DP_ALARM = 'alarm'
+DP_BATTERY = 'battery'
+DP_HUMIDITY = 'humidity'
+BRIGHTNESS_MAX = 100

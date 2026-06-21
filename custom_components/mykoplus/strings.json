@@ -1,0 +1,39 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connexion Myko+",
+        "description": "Saisissez les identifiants de votre compte Myko+.",
+        "data": {
+          "email": "Adresse e-mail",
+          "password": "Mot de passe"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Identifiants invalides.",
+      "cannot_connect": "Impossible de joindre le cloud Myko+."
+    },
+    "abort": {
+      "already_configured": "Ce compte est déjà configuré."
+    }
+  },
+  "entity": {
+    "sensor": {
+      "current_temperature": {
+        "name": "Température"
+      },
+      "battery": {
+        "name": "Batterie"
+      },
+      "humidity": {
+        "name": "Humidité"
+      }
+    },
+    "switch": {
+      "led": {
+        "name": "Voyant LED"
+      }
+    }
+  }
+}

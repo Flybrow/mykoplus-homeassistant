@@ -1,0 +1,16 @@
+{
+  "domain": "mykoplus",
+  "name": "Myko+",
+  "codeowners": [
+    "@Flybrow"
+  ],
+  "config_flow": true,
+  "documentation": "https://github.com/Flybrow/mykoplus-homeassistant",
+  "integration_type": "hub",
+  "iot_class": "cloud_push",
+  "issue_tracker": "https://github.com/Flybrow/mykoplus-homeassistant/issues",
+  "requirements": [
+    "python-socketio>=5.11.0"
+  ],
+  "version": "1.0.0"
+}

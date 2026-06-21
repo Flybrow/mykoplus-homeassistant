@@ -1,0 +1,27 @@
+# Artefacts Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.venv/
+venv/
+
+# Artefacts de reverse / capture (jamais publiés)
+apk/
+captures/
+*.apk
+*.xapk
+*.har
+config/
+
+# Fichiers de dev / non nécessaires à l'utilisation HACS
+.devcontainer/
+.vscode/
+scripts/
+tests/
+docs/
+pyproject.toml
+requirements_dev.txt
+.github/copilot-instructions.md
