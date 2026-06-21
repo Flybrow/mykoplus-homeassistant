@@ -65,6 +65,24 @@ Vos appareils apparaissent ensuite automatiquement.
 - **Appareil indisponible** : vérifiez que l'appareil est en ligne dans
   l'application Myko+ ; l'intégration reflète l'état du cloud.
 
+## Aider à intégrer votre appareil
+
+Votre appareil Myko+ n'est pas (bien) géré ? Un petit outil exporte la
+description **anonymisée** de vos appareils pour m'aider à les ajouter — aucune
+capture réseau compliquée nécessaire.
+
+1. Téléchargez **MykoDiagnostics.exe** depuis la
+   [dernière release](https://github.com/Flybrow/mykoplus-homeassistant/releases)
+   (ou, si vous avez Python : `python tools/myko_diagnostics.py`).
+2. Lancez-le, saisissez vos identifiants Myko+ (ils ne sont **ni enregistrés ni
+   transmis** — ils servent uniquement à interroger le cloud Myko+).
+3. Suivez les invites (option « diff » pour capturer un réglage précis).
+4. Envoyez le fichier `myko_report.json` généré via une
+   [issue](https://github.com/Flybrow/mykoplus-homeassistant/issues).
+
+Le rapport ne contient ni mot de passe, ni jeton, ni données personnelles
+(adresse, GPS, numéros de série et identifiants sont masqués).
+
 ## Avertissement
 
 Projet communautaire **non affilié** à Kingfisher, Myko+ ou leurs partenaires.

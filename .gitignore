@@ -15,6 +15,9 @@ captures/
 *.xapk
 *.har
 config/
+tools/dist/
+tools/build/
+*.spec
 
 # Fichiers de dev / non nécessaires à l'utilisation HACS
 .devcontainer/
