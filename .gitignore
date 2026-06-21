@@ -1,4 +1,4 @@
-# Artefacts Python
+# Caches / artefacts Python
 __pycache__/
 *.py[cod]
 *.egg-info/
@@ -8,23 +8,22 @@ __pycache__/
 .venv/
 venv/
 
-# Artefacts de reverse / capture (jamais publiés)
+# Reverse engineering / captures (jamais publies)
 apk/
 captures/
-*.apk
-*.xapk
-*.har
 config/
-tools/dist/
-tools/build/
-*.spec
 
-# Fichiers de dev / non nécessaires à l'utilisation HACS
+# Outil de diagnostic : artefacts de build
+tools/build/
+tools/dist/
+tools/*.spec
+
+# Fichiers de dev (non necessaires a l'utilisation HACS)
 .devcontainer/
 .vscode/
+docs/
 scripts/
 tests/
-docs/
 pyproject.toml
 requirements_dev.txt
 .github/copilot-instructions.md
