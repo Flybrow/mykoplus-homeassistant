@@ -27,3 +27,6 @@ tests/
 pyproject.toml
 requirements_dev.txt
 .github/copilot-instructions.md
+
+# Dossier de soumission brands (local)
+brand_submission/
